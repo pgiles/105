@@ -1,3 +1,3 @@
-module 105
+module github.com/pgiles/105
 
-go 1.15
+go 1.17
