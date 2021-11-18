@@ -1,8 +1,10 @@
 package main
 
 import (
-	"105/food"
 	"fmt"
+
+	"github.com/pgiles/105/food"
+	"github.com/pgiles/105/openapi"
 )
 
 var m = map[string]food.MenuItem{
@@ -18,6 +20,14 @@ func main() {
 	food.PizzanosMenu()
 	donutMenu()
 	italianMenu()
+
+	b, err := openapi.Generate("a.cue", &openapi.Info{
+		Desc: "let's find out",
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(string(b))
 }
 
 func italianMenu() {
