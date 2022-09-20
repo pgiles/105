@@ -2,7 +2,10 @@ module github.com/pgiles/105
 
 go 1.17
 
-require cuelang.org/go v0.4.0
+require (
+	cuelang.org/go v0.4.0
+	github.com/apex/log v1.9.0
+)
 
 require (
 	github.com/cockroachdb/apd/v2 v2.0.1 // indirect
@@ -15,5 +18,5 @@ require (
 	golang.org/x/net v0.0.0-20200226121028-0de0cce0169b // indirect
 	golang.org/x/text v0.3.2 // indirect
 	golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200121175148-a6ecf24a6d71 // indirect
+	gopkg.in/yaml.v3 v3.0.0-20200605160147-a5ece683394c // indirect
 )
