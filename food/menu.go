@@ -15,12 +15,9 @@ type MenuItem struct {
 }
 
 // PizzanosMenu static default menu
-func PizzanosMenu() {
-	menu := createMenu()
-	fmt.Println(menu.Desc)
-	for _, itm := range menu.Items {
-		fmt.Println(itm.Desc, ":", itm.Price)
-	}
+func PizzanosMenu() Menu {
+	return createMenu()
+	//menu.Print()
 }
 
 func createMenu() Menu {
@@ -37,4 +34,12 @@ func createMenu() Menu {
 		Items: []MenuItem{menuItem1, menuItem2},
 	}
 	return menu
+}
+
+func (m *Menu) Print() {
+	fmt.Println(m.Desc)
+	for _, itm := range m.Items {
+		fmt.Println(itm.Desc, ":", itm.Price)
+
+	}
 }
