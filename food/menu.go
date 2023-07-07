@@ -1,6 +1,9 @@
 package food
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/pgiles/105/food/enum"
+)
 
 // Menu has a description and list of dishes
 type Menu struct {
@@ -12,6 +15,7 @@ type Menu struct {
 type MenuItem struct {
 	Desc  string
 	Price float64
+	Promo enum.Promotion
 }
 
 // PizzanosMenu static default menu
@@ -29,9 +33,19 @@ func createMenu() Menu {
 		Desc:  "Pasta",
 		Price: 16.99,
 	}
+	menuItem3 := MenuItem{
+		Desc:  "Baked Ziti",
+		Price: 18.99,
+		Promo: enum.Daily,
+	}
+	menuItem4 := MenuItem{
+		Desc:  "Summer Bowtie",
+		Price: 13.99,
+		Promo: enum.Seasonal,
+	}
 	menu := Menu{
-		Desc:  "Pizzanos",
-		Items: []MenuItem{menuItem1, menuItem2},
+		Desc:  "Pizzanos Daily Menu",
+		Items: []MenuItem{menuItem1, menuItem2, menuItem3, menuItem4},
 	}
 	return menu
 }
@@ -39,7 +53,13 @@ func createMenu() Menu {
 func (m *Menu) Print() {
 	fmt.Println(m.Desc)
 	for _, itm := range m.Items {
-		fmt.Println(itm.Desc, ":", itm.Price)
+		promoIndicator := ""
+		if itm.Promo == enum.Daily {
+			promoIndicator = "*"
+		} else if itm.Promo == enum.Seasonal {
+			promoIndicator = ":-)"
+		}
+		fmt.Println(itm.Desc, ":", itm.Price, promoIndicator)
 
 	}
 }

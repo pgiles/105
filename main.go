@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/pgiles/105/food/enum"
 
 	"github.com/pgiles/105/food"
 	"github.com/pgiles/105/openapi"
@@ -9,10 +10,10 @@ import (
 
 var m = map[string]food.MenuItem{
 	"Main": {
-		"spaghetti", 14.99,
+		"spaghetti", 14.99, enum.Undefined,
 	},
 	"Dessert": {
-		"spumoni", 22.49,
+		"spumoni", 22.49, enum.Undefined,
 	},
 }
 
